@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * PRC 框架应用
- * 相当于 holder，存放了项目全局用到的变量。双检查锁单例模式实现
+ * 相当于 holder，存放了项目全局用到的变量。双检查锁单例模式实现。
  *
  * @author Ethan
  * @version 1.0
@@ -53,6 +53,4 @@ public class RpcApplication {
         }
         return rpcConfig;
     }
-
-
 }
