@@ -6,20 +6,16 @@
         <artifactId>myth-rpc</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>example-provider</artifactId>
-    <name>Archetype - example-provider</name>
+    <artifactId>myth-rpc-core</artifactId>
+    <name>Archetype - myth-rpc-core</name>
     <url>http://maven.apache.org</url>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/io.vertx/vertx-core -->
         <dependency>
-            <groupId>com.myth</groupId>
-            <artifactId>myth-rpc-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.myth</groupId>
-            <artifactId>example-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-core</artifactId>
+            <version>4.5.1</version>
         </dependency>
         <!-- https://doc.hutool.cn/ -->
         <dependency>
@@ -33,6 +29,18 @@
             <artifactId>lombok</artifactId>
             <version>1.18.30</version>
             <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.4.14</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

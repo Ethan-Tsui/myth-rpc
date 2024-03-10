@@ -13,6 +13,7 @@
         <module>example-consumer</module>
         <module>example-provider</module>
         <module>myth-rpc-easy</module>
+        <module>myth-rpc-core</module>
     </modules>
 
     <properties>
