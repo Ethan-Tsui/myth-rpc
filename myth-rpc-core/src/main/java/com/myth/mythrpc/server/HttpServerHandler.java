@@ -1,10 +1,12 @@
 package com.myth.mythrpc.server;
 
+import com.myth.mythrpc.RpcApplication;
 import com.myth.mythrpc.model.RpcRequest;
 import com.myth.mythrpc.model.RpcResponse;
 import com.myth.mythrpc.registry.LocalRegistry;
 import com.myth.mythrpc.serializer.JdkSerializer;
 import com.myth.mythrpc.serializer.Serializer;
+import com.myth.mythrpc.serializer.SerializerFactory;
 import io.vertx.core.Handler;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.HttpServerRequest;
@@ -24,7 +26,7 @@ public class HttpServerHandler implements Handler<HttpServerRequest> {
     @Override
     public void handle(HttpServerRequest request) {
         // 指定序列化器
-        JdkSerializer serializer = new JdkSerializer();
+        Serializer serializer = SerializerFactory.getInstance(RpcApplication.getRpcConfg().getSerializer());
 
         // 记录日志
         System.out.println("Received request: " + request.method() + " " + request.uri());
