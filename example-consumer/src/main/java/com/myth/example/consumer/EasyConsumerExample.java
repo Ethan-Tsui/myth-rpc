@@ -14,21 +14,21 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class EasyConsumerExample {
     public static void main(String[] args) {
-        // 静态代理
-//        UserService userService = new UserServiceProxy();
-
         ServiceProxyFactory serviceProxyFactory = new ServiceProxyFactory();
-
         // 动态代理
         UserServcie userService = serviceProxyFactory.getProxy(UserServcie.class);
         User user = new User();
-        user.setName("myth");
+        user.setName("my name is myth");
         // 调用
-        User newUser = userService.getUser(user);
-        if (newUser != null) {
-            System.out.println(newUser.getName());
-        } else {
-            System.out.println("user == null");
+        for (int i = 0; i < 10; i++) {
+            User newUser = userService.getUser(user);
+            if (newUser != null) {
+                System.out.println(newUser.getName());
+            } else {
+                System.out.println("user == null");
+            }
         }
+        short number = userService.getNumber();
+        System.out.println(number);
     }
 }
