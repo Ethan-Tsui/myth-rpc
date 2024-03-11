@@ -1,0 +1,3 @@
+roundRobin=com.myth.mythrpc.loadbalancer.RoundRobinLoadBalancer
+random=com.myth.mythrpc.loadbalancer.RandomLoadBalancer
+consistentHash=com.myth.mythrpc.loadbalancer.ConsistentHashLoadBalancer

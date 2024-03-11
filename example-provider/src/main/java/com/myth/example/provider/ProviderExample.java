@@ -8,8 +8,7 @@ import com.myth.mythrpc.model.ServiceMetaInfo;
 import com.myth.mythrpc.registry.LocalRegistry;
 import com.myth.mythrpc.registry.Registry;
 import com.myth.mythrpc.registry.RegistryFactor;
-import com.myth.mythrpc.server.HttpServer;
-import com.myth.mythrpc.server.VertxHttpServer;
+import com.myth.mythrpc.server.tcp.VertxTcpServer;
 
 /**
  * 简易服务提供者示例
@@ -42,7 +41,11 @@ public class ProviderExample {
         }
 
         // 启动 web 服务
-        HttpServer httpServer = new VertxHttpServer();
-        httpServer.doStart(RpcApplication.getRpcConfg().getServerPort());
+//        HttpServer httpServer = new VertxHttpServer();
+//        httpServer.doStart(RpcApplication.getRpcConfg().getServerPort());
+
+        // 启动 TCP 服务
+        VertxTcpServer vertxTcpServer = new VertxTcpServer();
+        vertxTcpServer.doStart(8080);
     }
 }
