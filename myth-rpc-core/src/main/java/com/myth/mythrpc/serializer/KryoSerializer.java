@@ -14,31 +14,41 @@ import java.io.ByteArrayOutputStream;
  * @version 1.0
  */
 public class KryoSerializer implements Serializer {
-    /**
-     * kryo 线程不安全，使用 ThreadLocal 保证每个线程只有一个 Kryo
-     */
-    private static final ThreadLocal<Kryo> KRYO_THREAD_LOCAL = ThreadLocal.withInitial(() -> {
-        Kryo kryo = new Kryo();
-        // 设置动态动态序列化和反序列化类，不提前注册所有类（可能有安全问题）
-        kryo.setRegistrationRequired(false);
-        return kryo;
-    });
+
+    private static final ThreadLocal<Kryo> KRYOS = ThreadLocal.withInitial(Kryo::new);
 
     @Override
-    public <T> byte[] serialize(T obj) {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        Output output = new Output(byteArrayOutputStream);
-        KRYO_THREAD_LOCAL.get().writeObject(output, obj);
-        output.close();
-        return byteArrayOutputStream.toByteArray();
+    public <T> byte[] serialize(T t) {
+        Output output = null;
+        try {
+            Kryo kryo = KRYOS.get();
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            output = new Output(byteArrayOutputStream);
+            kryo.writeClassAndObject(output, t);
+            return output.toBytes();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (output != null) {
+                output.close();
+            }
+        }
     }
 
     @Override
-    public <T> T deserialize(byte[] bytes, Class<T> classType) {
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
-        Input input = new Input(byteArrayInputStream);
-        T result = KRYO_THREAD_LOCAL.get().readObject(input, classType);
-        input.close();
-        return result;
+    public <T> T deserialize(byte[] data, Class<T> clazz) {
+        Input input = null;
+        try {
+            Kryo kryo = KRYOS.get();
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(data);
+            input = new Input(byteArrayInputStream);
+            return (T) kryo.readClassAndObject(input);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (input != null) {
+                input.close();
+            }
+        }
     }
 }
