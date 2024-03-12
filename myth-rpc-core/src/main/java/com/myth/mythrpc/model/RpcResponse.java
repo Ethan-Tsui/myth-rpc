@@ -18,6 +18,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RpcResponse implements Serializable {
+
     /**
      * 响应数据
      */
@@ -37,4 +38,7 @@ public class RpcResponse implements Serializable {
      * 异常信息
      */
     private Exception exception;
+
+    private static final long serialVersionUID = 1905122041950251207L;
+
 }

@@ -7,7 +7,7 @@ import com.myth.mythrpc.config.RpcConfig;
 import com.myth.mythrpc.model.ServiceMetaInfo;
 import com.myth.mythrpc.registry.LocalRegistry;
 import com.myth.mythrpc.registry.Registry;
-import com.myth.mythrpc.registry.RegistryFactor;
+import com.myth.mythrpc.registry.RegistryFactory;
 import com.myth.mythrpc.server.tcp.VertxTcpServer;
 
 /**
@@ -28,7 +28,7 @@ public class ProviderExample {
         // 注册服务到注册中心
         RpcConfig rpcConfig = RpcApplication.getRpcConfg();
         RegistryConfig registryConfig = rpcConfig.getRegistryConfig();
-        Registry registry = RegistryFactor.getInstance(registryConfig.getRegistry());
+        Registry registry = RegistryFactory.getInstance(registryConfig.getRegistry());
         ServiceMetaInfo serviceMetaInfo = new ServiceMetaInfo();
         serviceMetaInfo.setServiceName(serviceName);
         serviceMetaInfo.setServicePort(rpcConfig.getServerPort());

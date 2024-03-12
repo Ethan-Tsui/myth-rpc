@@ -10,6 +10,10 @@ import com.myth.mythrpc.spi.SpiLoader;
  */
 public class RetryStrategyFactory {
 
+    private RetryStrategyFactory() {
+        throw new IllegalStateException("Utility class");
+    }
+
     static {
         SpiLoader.load(RetryStrategy.class);
     }

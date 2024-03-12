@@ -10,6 +10,10 @@ import com.myth.mythrpc.spi.SpiLoader;
  */
 public class LoadBalancerFactory {
 
+    private LoadBalancerFactory() {
+        throw new IllegalStateException("Utility class");
+    }
+
     static {
         SpiLoader.load(LoadBalancer.class);
     }

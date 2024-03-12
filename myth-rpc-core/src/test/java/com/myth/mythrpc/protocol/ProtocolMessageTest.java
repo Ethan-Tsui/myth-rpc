@@ -1,6 +1,7 @@
 package com.myth.mythrpc.protocol;
 
 import cn.hutool.core.util.IdUtil;
+import com.myth.mythrpc.constant.ProtocolConstant;
 import com.myth.mythrpc.constant.RpcConstant;
 import com.myth.mythrpc.model.RpcRequest;
 import io.vertx.core.buffer.Buffer;

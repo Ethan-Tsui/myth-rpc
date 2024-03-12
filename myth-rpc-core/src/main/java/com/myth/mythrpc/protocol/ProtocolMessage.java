@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
+ * 协议消息
  * 协议消息构造
  *
  * @author Ethan

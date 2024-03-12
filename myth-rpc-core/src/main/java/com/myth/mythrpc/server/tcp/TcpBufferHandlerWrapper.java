@@ -1,6 +1,6 @@
 package com.myth.mythrpc.server.tcp;
 
-import com.myth.mythrpc.protocol.ProtocolConstant;
+import com.myth.mythrpc.constant.ProtocolConstant;
 import io.vertx.core.Handler;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.parsetools.RecordParser;

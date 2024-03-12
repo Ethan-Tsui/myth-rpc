@@ -4,7 +4,7 @@ import com.myth.mythrpc.config.RegistryConfig;
 import com.myth.mythrpc.config.RpcConfig;
 import com.myth.mythrpc.constant.RpcConstant;
 import com.myth.mythrpc.registry.Registry;
-import com.myth.mythrpc.registry.RegistryFactor;
+import com.myth.mythrpc.registry.RegistryFactory;
 import com.myth.mythrpc.utils.ConfigUtils;
 import lombok.extern.slf4j.Slf4j;
 
@@ -60,7 +60,7 @@ public class RpcApplication {
         log.info("rpc init, config = {}", newRpcConfig.toString());
         // 注册中心初始化
         RegistryConfig registryConfig = rpcConfig.getRegistryConfig();
-        Registry registry = RegistryFactor.getInstance(registryConfig.getRegistry());
+        Registry registry = RegistryFactory.getInstance(registryConfig.getRegistry());
         registry.init(registryConfig);
         log.info("registry init, config = {}", registryConfig);
 

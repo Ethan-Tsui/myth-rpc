@@ -1,6 +1,7 @@
 package com.myth.mythrpc.registry;
 
 /**
+ * 注册表项
  * 注册中心键名常量
  *
  * @author Ethan

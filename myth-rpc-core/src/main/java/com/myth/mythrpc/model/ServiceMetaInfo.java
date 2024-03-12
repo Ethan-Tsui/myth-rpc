@@ -12,6 +12,7 @@ import lombok.Data;
  */
 @Data
 public class ServiceMetaInfo {
+
     /**
      * 服务名称
      */
@@ -60,7 +61,7 @@ public class ServiceMetaInfo {
      * @return
      */
     public String getServiceNodeKey() {
-        return String.format("%s/%s%s", getServiceKey(), serviceHost, servicePort);
+        return String.format("%s/%s:%s", getServiceKey(), serviceHost, servicePort);
     }
 
     /**

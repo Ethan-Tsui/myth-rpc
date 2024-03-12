@@ -8,6 +8,7 @@ import lombok.Getter;
  */
 @Getter
 public enum ProtocolMessageTypeEnum {
+
     REQUEST(0),
 
     RESPONSE(1),

@@ -14,6 +14,7 @@ import java.lang.reflect.Proxy;
 public class ServiceProxyFactory {
 
     /**
+     * 获取代理
      * 根据服务类获取代理对象
      *
      * @param serviceClass
@@ -32,6 +33,7 @@ public class ServiceProxyFactory {
     }
 
     /**
+     * 获取模拟代理
      * 根据服务类获取 Mock 代理对象
      *
      * @param serviceClass

@@ -1,4 +1,4 @@
-package com.myth.mythrpc.protocol;
+package com.myth.mythrpc.constant;
 
 /**
  * 协议常量

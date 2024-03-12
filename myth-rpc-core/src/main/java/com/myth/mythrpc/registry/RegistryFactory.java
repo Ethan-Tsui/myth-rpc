@@ -9,7 +9,7 @@ import com.myth.mythrpc.spi.SpiLoader;
  * @author Ethan
  * @version 1.0
  */
-public class RegistryFactor {
+public class RegistryFactory {
 
     static {
         SpiLoader.load(Registry.class);

@@ -13,6 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @version 1.0
  */
 public class RoundRobinLoadBalancer implements LoadBalancer {
+
     /**
      * 当前轮询的下标
      */

@@ -45,4 +45,7 @@ public class RpcRequest implements Serializable {
      * 参数列表
      */
     private Object[] args;
+
+    private static final long serialVersionUID = 1905122041950251207L;
+
 }

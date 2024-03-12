@@ -13,6 +13,7 @@ import java.util.Random;
  * @version 1.0
  */
 public class RandomLoadBalancer implements LoadBalancer {
+
     private final Random random = new Random();
 
     @Override

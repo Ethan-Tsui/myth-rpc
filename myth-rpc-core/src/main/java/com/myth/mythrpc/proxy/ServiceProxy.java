@@ -12,7 +12,7 @@ import com.myth.mythrpc.model.RpcRequest;
 import com.myth.mythrpc.model.RpcResponse;
 import com.myth.mythrpc.model.ServiceMetaInfo;
 import com.myth.mythrpc.registry.Registry;
-import com.myth.mythrpc.registry.RegistryFactor;
+import com.myth.mythrpc.registry.RegistryFactory;
 import com.myth.mythrpc.serializer.Serializer;
 import com.myth.mythrpc.serializer.SerializerFactory;
 import com.myth.mythrpc.server.tcp.VertxTcpClient;
@@ -53,7 +53,7 @@ public class ServiceProxy implements InvocationHandler {
         try {
             // 从注册中心获取服务提供者请求地址
             RpcConfig rpcConfig = RpcApplication.getRpcConfg();
-            Registry registry = RegistryFactor.getInstance(rpcConfig.getRegistryConfig().getRegistry());
+            Registry registry = RegistryFactory.getInstance(rpcConfig.getRegistryConfig().getRegistry());
             ServiceMetaInfo serviceMetaInfo = new ServiceMetaInfo();
             serviceMetaInfo.setServiceName(serviceName);
             serviceMetaInfo.setServiceVersion(RpcConstant.DEFAULT_SERVICE_VERSION);

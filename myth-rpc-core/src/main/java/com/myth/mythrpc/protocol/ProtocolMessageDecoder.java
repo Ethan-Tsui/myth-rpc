@@ -1,5 +1,6 @@
 package com.myth.mythrpc.protocol;
 
+import com.myth.mythrpc.constant.ProtocolConstant;
 import com.myth.mythrpc.model.RpcRequest;
 import com.myth.mythrpc.model.RpcResponse;
 import com.myth.mythrpc.serializer.Serializer;
@@ -19,9 +20,9 @@ public class ProtocolMessageDecoder {
     /**
      * 解码
      *
-     * @param buffer
+     * @param buffer 缓冲区
      * @return
-     * @throws IOException
+     * @throws IOException IO异常
      */
     public static ProtocolMessage<?> decode(Buffer buffer) throws IOException {
         // 分别从指定位置读出 Buffer

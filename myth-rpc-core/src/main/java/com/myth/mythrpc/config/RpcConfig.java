@@ -14,6 +14,12 @@ import lombok.Data;
  */
 @Data
 public class RpcConfig {
+
+    /**
+     * 模拟调用
+     */
+    private boolean mock = false;
+
     /**
      * 名称
      */
@@ -35,21 +41,19 @@ public class RpcConfig {
     private Integer serverPort = 8080;
 
     /**
-     * 模拟调用
-     */
-    private boolean mock = false;
-
-    /**
      * 序列化器
      */
     private String serializer = SerializerKeys.JDK;
-
-    private RegistryConfig registryConfig = new RegistryConfig();
 
     /**
      * 负载均衡器
      */
     private String loadBalancer = LoadBalancerKeys.ROUND_ROBIN;
+
+    /**
+     * 注册表配置
+     */
+    private RegistryConfig registryConfig = new RegistryConfig();
 
     /**
      * 重试策略

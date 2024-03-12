@@ -2,6 +2,7 @@ package com.myth.mythrpc.server.tcp;
 
 import cn.hutool.core.util.IdUtil;
 import com.myth.mythrpc.RpcApplication;
+import com.myth.mythrpc.constant.ProtocolConstant;
 import com.myth.mythrpc.model.RpcRequest;
 import com.myth.mythrpc.model.RpcResponse;
 import com.myth.mythrpc.model.ServiceMetaInfo;
