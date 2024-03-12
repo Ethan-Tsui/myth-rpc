@@ -4,6 +4,7 @@ import lombok.Data;
 
 /**
  * RPC 框架注册中心配置
+ * 让用户配置连接注册中心所需的信息，比如注册中心类别、注册中心地址、用户名、密码、连接超时时间等
  *
  * @author Ethan
  * @version 1.0

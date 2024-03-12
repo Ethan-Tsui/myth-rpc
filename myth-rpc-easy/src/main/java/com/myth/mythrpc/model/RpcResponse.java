@@ -18,6 +18,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RpcResponse implements Serializable {
+
     /**
      * 响应数据
      */

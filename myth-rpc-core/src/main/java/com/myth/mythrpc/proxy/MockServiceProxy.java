@@ -7,6 +7,7 @@ import java.lang.reflect.Method;
 
 /**
  * Mock 服务代理 (JDK 动态代理)
+ * 生成 mock 代理服务
  *
  * @author Ethan
  * @version 1.0

@@ -4,6 +4,7 @@ import com.myth.mythrpc.spi.SpiLoader;
 
 /**
  * 注册中心工厂 (用于获取注册中心对象)
+ * 支持根据 key 从 SPI 获取注册中心对象实例
  *
  * @author Ethan
  * @version 1.0

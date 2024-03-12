@@ -5,6 +5,7 @@ import lombok.Data;
 
 /**
  * 服务元信息 (注册信息)
+ * 封装服务的注册信息，包括服务名称、服务版本号、服务地址、服务分组等
  *
  * @author Ethan
  * @version 1.0

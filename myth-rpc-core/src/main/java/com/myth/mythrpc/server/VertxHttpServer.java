@@ -3,7 +3,8 @@ package com.myth.mythrpc.server;
 import io.vertx.core.Vertx;
 
 /**
- * Vertx HTTP 服务器
+ * 基于 Vert.x 实现的 web 服务器 VertxHttpServer
+ * 能够监听指定端口并处理请求
  *
  * @author Ethan
  * @version 1.0

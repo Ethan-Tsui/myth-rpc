@@ -1,11 +1,13 @@
 package com.myth.mythrpc.config;
 
+import com.myth.mythrpc.fault.retry.RetryStrategyKeys;
 import com.myth.mythrpc.loadbalancer.LoadBalancerKeys;
 import com.myth.mythrpc.serializer.SerializerKeys;
 import lombok.Data;
 
 /**
  * RPC 框架配置
+ * 保存配置信息
  *
  * @author Ethan
  * @version 1.0
@@ -48,4 +50,9 @@ public class RpcConfig {
      * 负载均衡器
      */
     private String loadBalancer = LoadBalancerKeys.ROUND_ROBIN;
+
+    /**
+     * 重试策略
+     */
+    private String retryStrategy = RetryStrategyKeys.NO;
 }

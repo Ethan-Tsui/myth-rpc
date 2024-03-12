@@ -4,6 +4,7 @@ import java.io.IOException;
 
 /**
  * 序列化器接口
+ * 提供了序列化和反序列化两个方法
  *
  * @author Ethan
  * @version 1.0

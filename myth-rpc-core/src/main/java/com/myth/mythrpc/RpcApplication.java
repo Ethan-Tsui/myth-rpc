@@ -9,8 +9,10 @@ import com.myth.mythrpc.utils.ConfigUtils;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * PRC 框架应用
+ * 维护的全局的配置对象
  * 相当于 holder，存放了项目全局用到的变量。双检查锁单例模式实现。
+ * 在引入 RPC 框架的项目启动时，从配置文件中读取配置并创建对象实例，之后就可以集中地从这个对象中获取配置信息，而不用每次加载配置时再重新读取配置、并创建新的对象，减少了性能开销。
+ * 单例模式
  *
  * @author Ethan
  * @version 1.0

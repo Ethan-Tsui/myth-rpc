@@ -4,7 +4,6 @@ import com.myth.mythrpc.RpcApplication;
 import com.myth.mythrpc.model.RpcRequest;
 import com.myth.mythrpc.model.RpcResponse;
 import com.myth.mythrpc.registry.LocalRegistry;
-import com.myth.mythrpc.serializer.JdkSerializer;
 import com.myth.mythrpc.serializer.Serializer;
 import com.myth.mythrpc.serializer.SerializerFactory;
 import io.vertx.core.Handler;
@@ -17,6 +16,11 @@ import java.lang.reflect.Method;
 
 /**
  * HTTP 请求处理器
+ *
+ * 反序列化请求为对象，并从请求对象中获取参数。
+ * 根据服务名称从本地注册器中获取到对应的服务实现类。
+ * 通过反射机制调用方法，得到返回结果。
+ * 对返回结果进行封装和序列化，并写入到响应中。
  *
  * @author Ethan
  * @version 1.0
@@ -70,6 +74,7 @@ public class HttpServerHandler implements Handler<HttpServerRequest> {
 
     /**
      * 响应
+     *
      * @param request
      * @param rpcResponse
      * @param serializer

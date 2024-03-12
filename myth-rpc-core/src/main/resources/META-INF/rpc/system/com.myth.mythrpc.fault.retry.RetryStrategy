@@ -1,0 +1,2 @@
+no=com.myth.mythrpc.fault.retry.NoRetryStrategy
+fixedInterval=com.myth.mythrpc.fault.retry.FixedIntervalRetryStrategy

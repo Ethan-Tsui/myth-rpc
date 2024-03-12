@@ -5,7 +5,7 @@ import cn.hutool.setting.dialect.Props;
 
 /**
  * 配置工具类
- * 读取配置文件病返回配置对象
+ * 读取配置文件并返回配置对象，可以简化调用
  *
  * @author Ethan
  * @version 1.0

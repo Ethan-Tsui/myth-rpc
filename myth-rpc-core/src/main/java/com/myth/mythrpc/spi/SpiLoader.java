@@ -22,6 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 @Slf4j
 public class SpiLoader {
+
     /**
      * 存储已加载的类：接口名 =>（key => 实现类）
      */

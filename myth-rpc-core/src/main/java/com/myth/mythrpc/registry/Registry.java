@@ -6,7 +6,8 @@ import com.myth.mythrpc.model.ServiceMetaInfo;
 import java.util.List;
 
 /**
- * 注册中心
+ * 注册中心接口
+ * 后续可以实现多种不同的注册中心，并且和序列化器一样，可以使用 SPI 机制动态加载
  *
  * @author Ethan
  * @version 1.0

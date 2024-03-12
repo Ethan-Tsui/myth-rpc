@@ -2,6 +2,7 @@ package com.myth.mythrpc.constant;
 
 /**
  * RPC 相关常量
+ * 用于存储 RPC 框架相关的常量
  *
  * @author Ethan
  * @version 1.0

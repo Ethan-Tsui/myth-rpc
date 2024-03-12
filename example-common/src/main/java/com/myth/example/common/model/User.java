@@ -3,6 +3,8 @@ package com.myth.example.common.model;
 import java.io.Serializable;
 
 /**
+ * 用户
+ *
  * @author Ethan
  * @version 1.0
  */
