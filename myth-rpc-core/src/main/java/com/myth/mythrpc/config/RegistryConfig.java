@@ -21,7 +21,7 @@ public class RegistryConfig {
      * 注册中心地址
      * zookeeper:2181
      */
-    private String address = "http://localhost:2380";
+    private String address = "localhost:2380";
 //    private String address = "localhost:2181";
 
     /**

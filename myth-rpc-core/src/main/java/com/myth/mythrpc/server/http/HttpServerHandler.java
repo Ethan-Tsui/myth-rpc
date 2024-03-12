@@ -1,4 +1,4 @@
-package com.myth.mythrpc.server;
+package com.myth.mythrpc.server.http;
 
 import com.myth.mythrpc.RpcApplication;
 import com.myth.mythrpc.model.RpcRequest;

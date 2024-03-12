@@ -1,4 +1,4 @@
 jdk=com.myth.mythrpc.serializer.JdkSerializer
 hessian=com.myth.mythrpc.serializer.HessianSerializer
-json=com.myth.mythrpc.serializer.JsonSerializer
+fastjson=com.myth.mythrpc.serializer.FastJsonSerializer
 kryo=com.myth.mythrpc.serializer.KryoSerializer

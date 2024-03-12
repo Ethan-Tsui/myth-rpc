@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class EasyConsumerExample {
     public static void main(String[] args) {
+
         ServiceProxyFactory serviceProxyFactory = new ServiceProxyFactory();
         // 动态代理
         UserServcie userService = serviceProxyFactory.getProxy(UserServcie.class);

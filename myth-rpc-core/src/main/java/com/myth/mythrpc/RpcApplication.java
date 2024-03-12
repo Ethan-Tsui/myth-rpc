@@ -22,36 +22,8 @@ public class RpcApplication {
     private static volatile RpcConfig rpcConfig;
 
     /**
-     * 初始化
-     */
-    public static void init() {
-        RpcConfig newRpcConfig;
-        try {
-            newRpcConfig = ConfigUtils.loadConfig(RpcConfig.class, RpcConstant.DEFAULT_CONFIG_PREFIX);
-        } catch (Exception e) {
-            newRpcConfig = new RpcConfig();
-        }
-        init(newRpcConfig);
-    }
-
-    /**
-     * 获取配置
-     *
-     * @return
-     */
-    public static RpcConfig getRpcConfg() {
-        if (rpcConfig == null) {
-            synchronized (RpcApplication.class) {
-                if (rpcConfig == null) {
-                    init();
-                }
-            }
-        }
-        return rpcConfig;
-    }
-
-    /**
-     * 框架初始化，支持传入自定义配置
+     * 框架初始化
+     * 支持传入自定义配置
      *
      * @param newRpcConfig
      */
@@ -66,5 +38,36 @@ public class RpcApplication {
 
         // 创建并注册 Shutdown Hook，JVM退出时执行操作
         Runtime.getRuntime().addShutdownHook(new Thread(registry::destroy));
+    }
+
+    /**
+     * 初始化
+     * 框架初始化，支持传入自定义配置
+     */
+    public static void init() {
+        RpcConfig newRpcConfig;
+        try {
+            newRpcConfig = ConfigUtils.loadConfig(RpcConfig.class, RpcConstant.DEFAULT_CONFIG_PREFIX);
+        } catch (Exception e) {
+            newRpcConfig = new RpcConfig();
+        }
+        init(newRpcConfig);
+    }
+
+
+    /**
+     * 获取 RPC 配置
+     *
+     * @return
+     */
+    public static RpcConfig getRpcConfg() {
+        if (rpcConfig == null) {
+            synchronized (RpcApplication.class) {
+                if (rpcConfig == null) {
+                    init();
+                }
+            }
+        }
+        return rpcConfig;
     }
 }

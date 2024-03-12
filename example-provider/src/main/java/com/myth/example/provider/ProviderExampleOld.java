@@ -8,6 +8,8 @@ import com.myth.mythrpc.model.ServiceMetaInfo;
 import com.myth.mythrpc.registry.LocalRegistry;
 import com.myth.mythrpc.registry.Registry;
 import com.myth.mythrpc.registry.RegistryFactory;
+import com.myth.mythrpc.server.VertxHttpServer;
+import com.myth.mythrpc.server.http.HttpServer;
 import com.myth.mythrpc.server.tcp.VertxTcpServer;
 
 /**
@@ -16,9 +18,8 @@ import com.myth.mythrpc.server.tcp.VertxTcpServer;
  * @author Ethan
  * @version 1.0
  */
-public class ProviderExample {
+public class ProviderExampleOld {
     public static void main(String[] args) {
-
         // RPC 框架初始化
         RpcApplication.init();
 
@@ -32,16 +33,17 @@ public class ProviderExample {
         Registry registry = RegistryFactory.getInstance(registryConfig.getRegistry());
         ServiceMetaInfo serviceMetaInfo = new ServiceMetaInfo();
         serviceMetaInfo.setServiceName(serviceName);
-        serviceMetaInfo.setServiceHost(rpcConfig.getServerHost());
         serviceMetaInfo.setServicePort(rpcConfig.getServerPort());
+        serviceMetaInfo.setServiceHost(rpcConfig.getServerHost());
+
         try {
             registry.register(serviceMetaInfo);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
-        // 启动 TCP 服务
-        VertxTcpServer vertxTcpServer = new VertxTcpServer();
-        vertxTcpServer.doStart(RpcApplication.getRpcConfg().getServerPort());
+        // 启动 web 服务
+        HttpServer httpServer = new VertxHttpServer();
+        httpServer.doStart(RpcApplication.getRpcConfg().getServerPort());
     }
 }

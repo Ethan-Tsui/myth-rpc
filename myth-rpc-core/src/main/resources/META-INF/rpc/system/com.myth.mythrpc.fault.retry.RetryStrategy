@@ -1,2 +1,4 @@
 no=com.myth.mythrpc.fault.retry.NoRetryStrategy
 fixedInterval=com.myth.mythrpc.fault.retry.FixedIntervalRetryStrategy
+exponentialBackoff=com.myth.mythrpc.fault.retry.ExponentialBackoffRetryStrategy
+randomDelay=com.myth.mythrpc.fault.retry.RandomDelayRetryStrategy

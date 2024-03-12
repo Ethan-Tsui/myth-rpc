@@ -4,6 +4,7 @@ import com.myth.example.common.service.UserServcie;
 import com.myth.mythrpc.RpcApplication;
 import com.myth.mythrpc.registry.LocalRegistry;
 import com.myth.mythrpc.server.VertxHttpServer;
+import com.myth.mythrpc.server.http.HttpServer;
 
 
 /**
@@ -19,7 +20,7 @@ public class EasyProviderExample {
         LocalRegistry.register(UserServcie.class.getName(), UserServiceImpl.class);
 
         // 启动 web 服务
-        VertxHttpServer httpServer = new VertxHttpServer();
-        httpServer.doStart(8080);
+        HttpServer httpServer = new VertxHttpServer();
+        httpServer.doStart(RpcApplication.getRpcConfg().getServerPort());
     }
 }
