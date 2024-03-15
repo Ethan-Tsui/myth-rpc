@@ -1,17 +1,14 @@
 package com.myth.example.provider;
 
 import com.myth.example.common.service.UserServcie;
-import com.myth.mythrpc.RpcApplication;
-import com.myth.mythrpc.config.RegistryConfig;
-import com.myth.mythrpc.config.RpcConfig;
-import com.myth.mythrpc.model.ServiceMetaInfo;
-import com.myth.mythrpc.registry.LocalRegistry;
-import com.myth.mythrpc.registry.Registry;
-import com.myth.mythrpc.registry.RegistryFactory;
-import com.myth.mythrpc.server.tcp.VertxTcpServer;
+import com.myth.mythrpc.bootstrap.ProviderBootstrap;
+import com.myth.mythrpc.model.ServiceRegisterInfo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * 简易服务提供者示例
+ * 服务提供者示例
  *
  * @author Ethan
  * @version 1.0
@@ -19,29 +16,12 @@ import com.myth.mythrpc.server.tcp.VertxTcpServer;
 public class ProviderExample {
     public static void main(String[] args) {
 
-        // RPC 框架初始化
-        RpcApplication.init();
+        // 要注册的服务
+        List<ServiceRegisterInfo<?>> serviceRegisterInfoList = new ArrayList<>();
+        ServiceRegisterInfo serviceRegisterInfo = new ServiceRegisterInfo(UserServcie.class.getName(), UserServiceImpl.class);
+        serviceRegisterInfoList.add(serviceRegisterInfo);
 
-        // 注册服务
-        String serviceName = UserServcie.class.getName();
-        LocalRegistry.register(serviceName, UserServiceImpl.class);
-
-        // 注册服务到注册中心
-        RpcConfig rpcConfig = RpcApplication.getRpcConfg();
-        RegistryConfig registryConfig = rpcConfig.getRegistryConfig();
-        Registry registry = RegistryFactory.getInstance(registryConfig.getRegistry());
-        ServiceMetaInfo serviceMetaInfo = new ServiceMetaInfo();
-        serviceMetaInfo.setServiceName(serviceName);
-        serviceMetaInfo.setServiceHost(rpcConfig.getServerHost());
-        serviceMetaInfo.setServicePort(rpcConfig.getServerPort());
-        try {
-            registry.register(serviceMetaInfo);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-        // 启动 TCP 服务
-        VertxTcpServer vertxTcpServer = new VertxTcpServer();
-        vertxTcpServer.doStart(RpcApplication.getRpcConfg().getServerPort());
+        // 服务提供者初始化
+        ProviderBootstrap.init(serviceRegisterInfoList);
     }
 }
