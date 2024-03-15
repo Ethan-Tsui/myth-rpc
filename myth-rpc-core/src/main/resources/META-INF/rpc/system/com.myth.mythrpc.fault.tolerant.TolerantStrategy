@@ -1,0 +1,4 @@
+failBack=com.myth.mythrpc.fault.tolerant.FailBackTolerantStrategy
+failFast=com.myth.mythrpc.fault.tolerant.FailFastTolerantStrategy
+failOver=com.myth.mythrpc.fault.tolerant.FailOverTolerantStrategy
+failSafe=com.myth.mythrpc.fault.tolerant.FailSafeTolerantStrategy

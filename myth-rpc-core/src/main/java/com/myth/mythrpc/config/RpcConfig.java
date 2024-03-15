@@ -1,6 +1,8 @@
 package com.myth.mythrpc.config;
 
 import com.myth.mythrpc.fault.retry.RetryStrategyKeys;
+import com.myth.mythrpc.fault.tolerant.MockServiceKeys;
+import com.myth.mythrpc.fault.tolerant.TolerantStrategyKeys;
 import com.myth.mythrpc.loadbalancer.LoadBalancerKeys;
 import com.myth.mythrpc.serializer.SerializerKeys;
 import lombok.Data;
@@ -59,4 +61,14 @@ public class RpcConfig {
      * 重试策略
      */
     private String retryStrategy = RetryStrategyKeys.NO;
+
+    /**
+     * 容错策略
+     */
+    private String tolerantStrategy = TolerantStrategyKeys.FAIL_FAST;
+
+    /**
+     * 模拟服务
+     */
+    private String mockService = MockServiceKeys.DEFAULT;
 }

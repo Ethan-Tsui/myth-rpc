@@ -21,7 +21,7 @@ public class EasyConsumerExample {
         User user = new User();
         user.setName("my name is myth");
         // 调用
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1000; i++) {
             User newUser = userService.getUser(user);
             if (newUser != null) {
                 System.out.println(newUser.getName());

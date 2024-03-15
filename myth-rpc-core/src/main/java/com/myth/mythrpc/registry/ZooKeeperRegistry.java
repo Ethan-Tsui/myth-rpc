@@ -52,7 +52,6 @@ public class ZooKeeperRegistry implements Registry {
      */
     private static final String ZK_ROOT_PATH = "/rpc/zk";
 
-
     @Override
     public void init(RegistryConfig registryConfig) {
         // 构建 client 实例

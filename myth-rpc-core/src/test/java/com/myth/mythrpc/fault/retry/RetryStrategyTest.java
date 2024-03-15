@@ -10,6 +10,7 @@ import org.junit.Test;
  * @version 1.0
  */
 public class RetryStrategyTest {
+
     RetryStrategy retryStrategy = new NoRetryStrategy();
 
     @Test
