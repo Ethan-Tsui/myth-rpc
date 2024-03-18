@@ -9,6 +9,7 @@ import java.io.Serializable;
 
 /**
  * PRC 响应
+ * 封装调用方法得到的返回值、以及调用的信息
  *
  * @author Ethan
  * @version 1.0

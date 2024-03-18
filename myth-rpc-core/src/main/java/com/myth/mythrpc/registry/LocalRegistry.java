@@ -13,6 +13,9 @@ public class LocalRegistry {
 
     /**
      * 注册信息存储
+     * key 为服务名称
+     * value 为服务的实现类
+     * 之后就可以根据要调用的服务名称获取到对应的实现类，然后通过反射进行方法调用了。
      */
     private static final Map<String, Class<?>> map = new ConcurrentHashMap<>();
 
@@ -28,6 +31,7 @@ public class LocalRegistry {
 
     /**
      * 获取服务
+     *
      * @param serviceName
      * @return
      */
@@ -37,9 +41,10 @@ public class LocalRegistry {
 
     /**
      * 删除服务
+     *
      * @param serviceName
      */
-    public static void remove(String serviceName){
+    public static void remove(String serviceName) {
         map.remove(serviceName);
     }
 

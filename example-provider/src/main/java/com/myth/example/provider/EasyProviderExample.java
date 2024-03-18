@@ -13,10 +13,11 @@ import com.myth.mythrpc.server.http.HttpServer;
 public class EasyProviderExample {
 
     public static void main(String[] args) {
+
         // RPC 框架初始化
         RpcApplication.init();
 
-        // 注册服务
+        // 注册服务：服务启动时，将服务注册到本地服务中心
         LocalRegistry.register(UserServcie.class.getName(), UserServiceImpl.class);
 
         // 启动 web 服务

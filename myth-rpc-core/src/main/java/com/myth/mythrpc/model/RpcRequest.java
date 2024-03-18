@@ -1,6 +1,5 @@
 package com.myth.mythrpc.model;
 
-
 import com.myth.mythrpc.constant.RpcConstant;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,6 +10,7 @@ import java.io.Serializable;
 
 /**
  * RPC 请求
+ * 封装调用所需的信息，比如服务名称、方法名称、调用参数的类型列表、参数列表。这些都是 Java 反射机制所需的参数
  *
  * @author Ethan
  * @version 1.0
