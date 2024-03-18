@@ -9,6 +9,7 @@ import com.myth.example.common.model.User;
  * @version 1.0
  */
 public interface UserServcie {
+
     /**
      * 获取用户
      *
@@ -19,6 +20,7 @@ public interface UserServcie {
 
     /**
      * 新方法：获取数字
+     *
      * @return
      */
     default short getNumber() {

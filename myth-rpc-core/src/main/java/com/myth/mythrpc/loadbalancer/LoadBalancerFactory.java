@@ -19,11 +19,6 @@ public class LoadBalancerFactory {
     }
 
     /**
-     * 默认负载均衡器
-     */
-    private static final LoadBalancer DEFAULT_LOAD_BALANCER = new RoundRobinLoadBalancer();
-
-    /**
      * 获取实例
      *
      * @param key

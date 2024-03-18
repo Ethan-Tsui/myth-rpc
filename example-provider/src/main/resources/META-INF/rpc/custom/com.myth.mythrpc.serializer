@@ -1,4 +1,0 @@
-jdk=com.myth.example.provider.serializer.JdkSerializer
-hessian=com.myth.example.provider.serializer.HessianSerializer
-fastjson=com.myth.example.provider.serializer.FastJsonSerializer
-kryo=com.myth.example.provider.serializer.KryoSerializer
