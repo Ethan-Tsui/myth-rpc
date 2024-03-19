@@ -13,11 +13,14 @@ import java.io.IOException;
 
 /**
  * 用户服务静态代理
+ * 构造 Http 请求去掉用服务提供者
+ * 缺点：我们需要给每个服务接口都写一个实现类，是非常麻烦的。
  *
  * @author Ethan
  * @version 1.0
  */
 public class UserServiceProxy implements UserServcie {
+
     @Override
     public User getUser(User user) {
 

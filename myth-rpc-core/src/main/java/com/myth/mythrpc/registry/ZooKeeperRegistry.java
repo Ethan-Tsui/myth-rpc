@@ -28,6 +28,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 public class ZooKeeperRegistry implements Registry {
+
     private CuratorFramework client;
 
     private ServiceDiscovery<ServiceMetaInfo> serviceDiscovery;
@@ -54,6 +55,7 @@ public class ZooKeeperRegistry implements Registry {
 
     @Override
     public void init(RegistryConfig registryConfig) {
+
         // 构建 client 实例
         client = CuratorFrameworkFactory
                 .builder()

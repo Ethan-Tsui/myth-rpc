@@ -20,7 +20,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * etcd 注册中心
+ * Etcd 注册中心
  *
  * @author Ethan
  * @version 1.0
@@ -32,6 +32,7 @@ public class EtcdRegistry implements Registry {
     private KV kvClient;
 
     /**
+     * 心跳检测
      * 本机注册的节点的 key 集合 (用于维护续期)
      */
     private final Set<String> localRegisterNodeKeySet = new HashSet<>();
@@ -53,11 +54,21 @@ public class EtcdRegistry implements Registry {
 
     @Override
     public void init(RegistryConfig registryConfig) {
-        client = Client.builder().endpoints("http://" + registryConfig.getAddress()).connectTimeout(Duration.ofMillis(registryConfig.getTimeout())).build();
+        client = Client.builder()
+                .endpoints("http://" + registryConfig.getAddress())
+                .connectTimeout(Duration.ofMillis(registryConfig.getTimeout())).build();
         kvClient = client.getKVClient();
         heartBeat();
     }
 
+    /**
+     * 服务注册
+     * 创建 key 并设置过期时间
+     * value 是服务注册信息的JSON序列化
+     *
+     * @param serviceMetaInfo
+     * @throws Exception
+     */
     @Override
     public void register(ServiceMetaInfo serviceMetaInfo) throws Exception {
         // 创建 Lease 和 KV 客户端
@@ -79,6 +90,11 @@ public class EtcdRegistry implements Registry {
         localRegisterNodeKeySet.add(registerKey);
     }
 
+    /**
+     * 服务注销
+     *
+     * @param serviceMetaInfo
+     */
     @Override
     public void unRegister(ServiceMetaInfo serviceMetaInfo) {
         String registerKey = ETCD_ROOT_PATH + serviceMetaInfo.getServiceNodeKey();
@@ -87,6 +103,13 @@ public class EtcdRegistry implements Registry {
         localRegisterNodeKeySet.remove(registerKey);
     }
 
+    /**
+     * 服务发现
+     * 根据服务名作为前缀，从 Etcd 获取服务下的节点列表
+     *
+     * @param serviceKey 服务键名
+     * @return
+     */
     @Override
     public List<ServiceMetaInfo> serviceDiscovery(String serviceKey) {
         // 优先从缓存获取服务
@@ -117,13 +140,15 @@ public class EtcdRegistry implements Registry {
                     .collect(Collectors.toList());
             // 写入服务缓存
             registryServiceCache.writeCache(serviceMetaInfoList);
-
             return serviceMetaInfoList;
         } catch (Exception e) {
             throw new RuntimeException("获取服务列表失败", e);
         }
     }
 
+    /**
+     * 服务销毁
+     */
     @Override
     public void destroy() {
         System.out.println("当前节点下线");

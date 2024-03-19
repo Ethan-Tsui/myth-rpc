@@ -8,9 +8,8 @@ import com.myth.mythrpc.model.ServiceMetaInfo;
 import com.myth.mythrpc.registry.LocalRegistry;
 import com.myth.mythrpc.registry.Registry;
 import com.myth.mythrpc.registry.RegistryFactory;
-import com.myth.mythrpc.server.VertxHttpServer;
-import com.myth.mythrpc.server.http.HttpServer;
-import com.myth.mythrpc.server.tcp.VertxTcpServer;
+import com.myth.mythrpc.server.HttpServer;
+import com.myth.mythrpc.server.http.VertxHttpServer;
 
 /**
  * 简易服务提供者示例
@@ -20,6 +19,7 @@ import com.myth.mythrpc.server.tcp.VertxTcpServer;
  */
 public class ProviderExampleOld {
     public static void main(String[] args) {
+
         // RPC 框架初始化
         RpcApplication.init();
 

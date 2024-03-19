@@ -3,8 +3,8 @@ package com.myth.example.provider;
 import com.myth.example.common.service.UserServcie;
 import com.myth.mythrpc.RpcApplication;
 import com.myth.mythrpc.registry.LocalRegistry;
-import com.myth.mythrpc.server.VertxHttpServer;
-import com.myth.mythrpc.server.http.HttpServer;
+import com.myth.mythrpc.server.http.VertxHttpServer;
+import com.myth.mythrpc.server.HttpServer;
 
 
 /**

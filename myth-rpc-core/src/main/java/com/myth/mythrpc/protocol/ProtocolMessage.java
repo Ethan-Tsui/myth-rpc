@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * 协议消息
  * 协议消息构造
  *
  * @author Ethan
@@ -23,6 +22,7 @@ public class ProtocolMessage<T> {
 
     /**
      * 消息体（请求或响应对象）
+     * 消息提可以使用泛型
      */
     private T body;
 

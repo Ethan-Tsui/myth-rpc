@@ -5,7 +5,7 @@ import lombok.Data;
 
 /**
  * 服务元信息 (注册信息)
- * 封装服务的注册信息，包括服务名称、服务版本号、服务地址、服务分组等
+ * 封装 服务 的注册信息，包括服务名称、服务版本号、服务地址、服务分组等
  *
  * @author Ethan
  * @version 1.0
@@ -45,6 +45,7 @@ public class ServiceMetaInfo {
 
     /**
      * 获取服务键名
+     * 把版本号和分组都放到服务键名中，就可以在查询时根据这些参数获取对应版本和分组的服务了
      *
      * @return
      */
@@ -55,7 +56,6 @@ public class ServiceMetaInfo {
     }
 
     /**
-     * 获取服务注册节点密钥
      * 获取服务注册节点键名
      *
      * @return

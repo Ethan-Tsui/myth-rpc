@@ -1,6 +1,5 @@
 package com.myth.mythrpc.proxy;
 
-import cn.hutool.core.collection.CollUtil;
 import com.myth.mythrpc.RpcApplication;
 import com.myth.mythrpc.config.RpcConfig;
 import com.myth.mythrpc.constant.RpcConstant;
@@ -25,6 +24,7 @@ import java.util.Map;
 
 /**
  * 服务代理 (JDK动态代理)
+ * 根据要生成的对象类型，自动生成一个代理对象
  *
  * @author Ethan
  * @version 1.0
@@ -33,6 +33,7 @@ public class ServiceProxy implements InvocationHandler {
 
     /**
      * 调用代理
+     * 动态代理
      *
      * @return
      * @throws Throwable
@@ -48,6 +49,7 @@ public class ServiceProxy implements InvocationHandler {
                 .parameterTypes(method.getParameterTypes())
                 .args(args)
                 .build();
+
         // 从注册中心获取服务提供者请求地址
         RpcConfig rpcConfig = RpcApplication.getRpcConfg();
         Registry registry = RegistryFactory.getInstance(rpcConfig.getRegistryConfig().getRegistry());
@@ -58,12 +60,14 @@ public class ServiceProxy implements InvocationHandler {
 //        if (CollUtil.isEmpty(serviceMetaInfoList)) {
 //            throw new RuntimeException("暂无服务地址");
 //        }
+
         // 负载均衡
         LoadBalancer loadBalancer = LoadBalancerFactory.getInstance(rpcConfig.getLoadBalancer());
         // 将调用方法名（请求路径）作为负载均衡参数
         Map<String, Object> requestParams = new HashMap<>();
         requestParams.put("methodName", rpcRequest.getMethodName());
         ServiceMetaInfo selectedServiceMetaInfo = loadBalancer.select(requestParams, serviceMetaInfoList);
+
         // 发送 rpc 请求
         // 使用重试机制
         RpcResponse rpcResponse;

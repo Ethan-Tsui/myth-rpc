@@ -24,6 +24,7 @@ public class ProviderBootstrap {
      * 初始化
      */
     public static void init(List<ServiceRegisterInfo<?>> serviceRegisterInfoList) {
+
         // RPC 框架初始化（配置和注册中心）
         RpcApplication.init();
         // 全局配置

@@ -23,7 +23,8 @@ import java.util.concurrent.ExecutionException;
 public class FailOverTolerantStrategy implements TolerantStrategy{
     @Override
     public RpcResponse doTolerant(Map<String, Object> context, Exception e) throws ExecutionException, InterruptedException {
-//可自行扩展，获取其他服务节点并调用
+
+        //可自行扩展，获取其他服务节点并调用
         List<ServiceMetaInfo> serviceMetaInfoList = (List<ServiceMetaInfo>) context.get("serviceList");
         ServiceMetaInfo errorService = (ServiceMetaInfo) context.get("errorService");
         RpcRequest rpcRequest = (RpcRequest) context.get("rpcRequest");

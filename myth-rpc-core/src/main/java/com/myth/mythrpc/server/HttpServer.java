@@ -1,4 +1,4 @@
-package com.myth.mythrpc.server.http;
+package com.myth.mythrpc.server;
 
 /**
  * WEB 服务器接口

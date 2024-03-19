@@ -16,6 +16,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Slf4j
 public class RandomDelayRetryStrategy implements RetryStrategy {
+
     /**
      * 重试
      *

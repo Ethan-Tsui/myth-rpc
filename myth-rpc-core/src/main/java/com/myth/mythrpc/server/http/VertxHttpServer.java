@@ -1,7 +1,6 @@
-package com.myth.mythrpc.server;
+package com.myth.mythrpc.server.http;
 
-import com.myth.mythrpc.server.http.HttpServer;
-import com.myth.mythrpc.server.http.HttpServerHandler;
+import com.myth.mythrpc.server.HttpServer;
 import io.vertx.core.Vertx;
 
 /**
@@ -26,7 +25,7 @@ public class VertxHttpServer implements HttpServer {
         // 创建 HTTP 服务器
         io.vertx.core.http.HttpServer server = vertx.createHttpServer();
 
-        // 监听端口并处理请求
+        // 监听端口并处理请求 / 给 HttpServer 绑定请求处理器
         server.requestHandler(new HttpServerHandler());
 
         // 启动 HTTP 服务器并监听指定端口

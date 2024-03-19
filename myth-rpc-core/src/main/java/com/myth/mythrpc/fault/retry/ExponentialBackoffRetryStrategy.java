@@ -16,6 +16,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Slf4j
 public class ExponentialBackoffRetryStrategy implements RetryStrategy {
+
     /**
      * 重试
      *
@@ -24,6 +25,7 @@ public class ExponentialBackoffRetryStrategy implements RetryStrategy {
      * @throws ExecutionException 执行异常
      * @throws RetryException     重试异常
      */
+    @Override
     public RpcResponse doRetry(Callable<RpcResponse> callable) throws ExecutionException, RetryException {
         Retryer<RpcResponse> retryer = RetryerBuilder.<RpcResponse>newBuilder()
                 .retryIfExceptionOfType(Exception.class)
@@ -36,7 +38,6 @@ public class ExponentialBackoffRetryStrategy implements RetryStrategy {
                     }
                 })
                 .build();
-
         return retryer.call(callable);
     }
 }

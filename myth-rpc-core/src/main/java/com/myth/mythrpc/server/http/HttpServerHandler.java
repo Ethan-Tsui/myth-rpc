@@ -29,6 +29,7 @@ public class HttpServerHandler implements Handler<HttpServerRequest> {
 
     @Override
     public void handle(HttpServerRequest request) {
+
         // 指定序列化器
         Serializer serializer = SerializerFactory.getInstance(RpcApplication.getRpcConfg().getSerializer());
 

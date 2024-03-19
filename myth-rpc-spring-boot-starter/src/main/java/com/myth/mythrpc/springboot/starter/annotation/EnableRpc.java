@@ -20,7 +20,7 @@ import java.lang.annotation.Target;
 public @interface EnableRpc {
 
     /**
-     * 需要启动 server
+     * 是否需要启动 server
      *
      * @return
      */
