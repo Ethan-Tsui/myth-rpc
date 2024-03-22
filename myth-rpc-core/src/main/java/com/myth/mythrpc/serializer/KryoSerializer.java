@@ -22,6 +22,7 @@ public class KryoSerializer implements Serializer {
         Output output = null;
         try {
             Kryo kryo = KRYOS.get();
+            kryo.setRegistrationRequired(false);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             output = new Output(byteArrayOutputStream);
             kryo.writeClassAndObject(output, t);
