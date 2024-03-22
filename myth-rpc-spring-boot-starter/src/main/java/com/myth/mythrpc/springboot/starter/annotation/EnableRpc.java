@@ -11,6 +11,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * 引入RPC框架，执行初始化
+ *
  * @author Ethan
  * @version 1.0
  */

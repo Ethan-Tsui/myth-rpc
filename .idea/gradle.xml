@@ -11,14 +11,7 @@
           </set>
         </option>
       </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/example-springboot-provider" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/example-springboot-provider" />
-          </set>
-        </option>
-      </GradleProjectSettings>
     </option>
+    <option name="offlineMode" value="true" />
   </component>
 </project>

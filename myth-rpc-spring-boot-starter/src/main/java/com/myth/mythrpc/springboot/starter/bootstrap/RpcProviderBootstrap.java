@@ -63,7 +63,6 @@ public class RpcProviderBootstrap implements BeanPostProcessor {
                 throw new RuntimeException(serviceName + " 服务注册失败", e);
             }
         }
-
         return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
     }
 }

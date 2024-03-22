@@ -16,6 +16,7 @@ import java.util.Map;
  * @version 1.0
  */
 public class LoadBalancerTest {
+
     final LoadBalancer loadBalancer = new ConsistentHashLoadBalancer();
 
     @Test

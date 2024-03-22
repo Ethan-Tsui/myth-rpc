@@ -6,6 +6,8 @@ import com.myth.mythrpc.springboot.starter.annotation.RpcService;
 import org.springframework.stereotype.Service;
 
 /**
+ * 服务提供者
+ *
  * @author Ethan
  * @version 1.0
  */

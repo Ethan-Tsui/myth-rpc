@@ -6,6 +6,8 @@ import com.myth.mythrpc.springboot.starter.annotation.RpcReference;
 import org.springframework.stereotype.Service;
 
 /**
+ * 服务消费者
+ *
  * @author Ethan
  * @version 1.0
  */

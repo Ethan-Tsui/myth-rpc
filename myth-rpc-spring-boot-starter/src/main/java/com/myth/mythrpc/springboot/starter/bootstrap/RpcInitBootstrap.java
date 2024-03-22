@@ -43,6 +43,5 @@ public class RpcInitBootstrap implements ImportBeanDefinitionRegistrar {
         } else {
             log.info("不启动 server");
         }
-
     }
 }
